@@ -1,0 +1,15 @@
+# Create 5 files: file1.txt to file5.txt
+for ($i = 1; $i -le 5; $i++) {
+    New-Item -Path "file$i.txt" -ItemType "File"
+}
+
+
+
+$fileNames = @("terraform.tfvars", "variable.tf", "provider.tf")
+
+foreach ($name in $fileNames) {
+    # Create each file in the list
+    New-Item -Path $name -ItemType "File" -Force
+}
+
+New-Item -Path "main.tf" -ItemType "directory" -Force
